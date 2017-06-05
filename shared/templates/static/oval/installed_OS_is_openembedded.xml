@@ -1,5 +1,5 @@
 <def-group>
-  <definition class="inventory" id="installed_OS_is_openembeded" version="1">
+  <definition class="inventory" id="installed_OS_is_openembedded" version="1">
     <metadata>
       <title>OpenEmbedded</title>
       <affected family="unix">
