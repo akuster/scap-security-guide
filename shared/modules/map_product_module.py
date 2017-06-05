@@ -15,8 +15,9 @@ FUSE = 'JBoss Fuse'
 OPENSUSE = 'OpenSUSE'
 SUSE = 'SUSE Linux Enterprise'
 WRLINUX = 'Wind River Linux'
+OPENEMBEDDED = 'OpenEmbedded'
 
-multi_product_list = ['rhel', 'fedora', 'rhel-osp', 'debian', 'ubuntu', 'wrlinux', 'opensuse', 'sle']
+multi_product_list = ['rhel', 'fedora', 'rhel-osp', 'debian', 'ubuntu', 'wrlinux', 'opensuse', 'sle','openembedded']
 
 
 def parse_product_name(product):
@@ -60,6 +61,8 @@ def map_product(version):
         product_name = EAP
     if re.findall('fuse', version):
         product_name = FUSE
+    if re.findall('openembedded', version):
+        product_name = OPENEMBEDDED
     if re.findall('opensuse', version):
         product_name = OPENSUSE
     if re.findall('sle', version):
