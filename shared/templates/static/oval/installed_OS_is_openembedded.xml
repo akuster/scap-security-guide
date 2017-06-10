@@ -1,38 +1,28 @@
 <def-group>
-  <definition class="inventory" id="installed_OS_is_openembedded" version="1">
+  <definition class="inventory"
+  id="installed_OS_is_openembedded" version="2">
     <metadata>
       <title>OpenEmbedded</title>
       <affected family="unix">
-        <platform>multi_platform_all</platform>
+        <platform>OPENEMBEDDED</platform>
       </affected>
-      <reference ref_id="cpe:/o:openembedded:nodistro"
+      <reference ref_id="cpe:/o:openembedded:openembedded:0"
       source="CPE" />
       <description>The operating system installed on the system is
-      OpenEmbeddd </description>
+      OpenEmbedded</description>
     </metadata>
-    <criteria>
-      <criterion comment="Installed operating system is part of the unix family" test_ref="test_unix_openembedded" />
-      <criterion comment="OpenEmbedded is installed" test_ref="test_openembedded" />
+    <criteria operator="AND">
+      <extend_definition comment="Installed OS is part of the Unix family"
+      definition_ref="installed_OS_is_part_of_Unix_family" />
+      <criterion comment="OpenEmbedded nodistro is installed"
+      test_ref="test_openembedded" />
     </criteria>
   </definition>
 
-  <ind:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="test_unix_openembedded" version="1">
-    <ind:object object_ref="obj_unix_openembedded" />
-    <ind:state state_ref="state_unix_openembedded" />
-  </ind:family_test>
-
-  <ind:family_state id="state_unix_openembedded" version="1">
-    <ind:family>unix</ind:family>
-  </ind:family_state>
-
-  <ind:family_object id="obj_unix_openembedded" version="1" />
-
-  <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check_existence="at_least_one_exists" version="1" id="test_openembedded" check="all" comment="Test presence of /etc/os-release.">
-      <object object_ref="obj_test_openembedded" />
-  </file_test>
-
-  <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" version="1" id="obj_test_openembedded" >
-      <filepath>/etc/os-release</filepath>
-  </file_object>
+  <ind:textfilecontent54_object id="test_openembedded" version="1" comment="Check OPenEmbedded version">
+    <ind:filepath>/etc/os-release/ind:filepath>
+    <ind:pattern operation="pattern match">^VERSION_ID=\"nodistro\.[0-9].$</ind:pattern>
+    <ind:instance datatype="int">1</ind:instance>
+  </ind:textfilecontent54_object>
 
 </def-group>
