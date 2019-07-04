@@ -71,6 +71,7 @@ option(SSG_PRODUCT_UBUNTU1404 "If enabled, the Ubuntu 14.04 SCAP content will be
 option(SSG_PRODUCT_UBUNTU1604 "If enabled, the Ubuntu 16.04 SCAP content will be built" TRUE)
 option(SSG_PRODUCT_UBUNTU1804 "If enabled, the Ubuntu 18.04 SCAP content will be built" TRUE)
 option(SSG_PRODUCT_WRLINUX "If enabled, the WRLinux SCAP content will be built" TRUE)
+option(SSG_PRODUCT_OPENEMBEDDED "If enabled, the WRLinux SCAP content will be built" TRUE)
 
 option(SSG_CENTOS_DERIVATIVES_ENABLED "If enabled, CentOS derivative content will be built from the RHEL content" TRUE)
 option(SSG_SCIENTIFIC_LINUX_DERIVATIVES_ENABLED "If enabled, Scientific Linux derivative content will be built from the RHEL content" TRUE)
@@ -231,6 +232,7 @@ message(STATUS "Ubuntu 14.04: ${SSG_PRODUCT_UBUNTU1404}")
 message(STATUS "Ubuntu 16.04: ${SSG_PRODUCT_UBUNTU1604}")
 message(STATUS "Ubuntu 18.04: ${SSG_PRODUCT_UBUNTU1804}")
 message(STATUS "WRLinux: ${SSG_PRODUCT_WRLINUX}")
+message(STATUS "OpenEmbedded: ${SSG_PRODUCT_OPENEMBEDDED}")
 
 message(STATUS " ")
 
@@ -332,6 +334,9 @@ if (SSG_PRODUCT_UBUNTU1804)
 endif()
 if (SSG_PRODUCT_WRLINUX)
     add_subdirectory("wrlinux")
+endif()
+if (SSG_PRODUCT_OPENEMBEDDED)
+    add_subdirectory("openembedded")
 endif()
 
 ssg_define_guide_and_table_tests()

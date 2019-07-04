@@ -8,7 +8,7 @@ product_directories = ['debian8', 'fedora', 'ol7', 'ol8', 'opensuse', 'rhel6',
                        'rhel7', 'rhel8', 'sle11', 'sle12', 'ubuntu1404',
                        'ubuntu1604', 'ubuntu1804', 'wrlinux', 'rhosp13',
                        'chromium', 'eap6', 'firefox', 'fuse6', 'jre', 'ocp3',
-                       'example']
+                       'example', 'openembedded']
 
 JINJA_MACROS_BASE_DEFINITIONS = os.path.join(os.path.dirname(os.path.dirname(
     __file__)), "shared", "macros.jinja")
@@ -105,6 +105,7 @@ FULL_NAME_TO_PRODUCT_MAPPING = {
     "Ubuntu 16.04": "ubuntu1604",
     "Ubuntu 18.04": "ubuntu1804",
     "WRLinux": "wrlinux",
+    "OpenEmbedded": "openembedded",
 }
 
 PRODUCT_TO_CPE_MAPPING = {
@@ -226,6 +227,9 @@ PRODUCT_TO_CPE_MAPPING = {
     ],
     "wrlinux": [
         "cpe:/o:windriver:wrlinux:8",
+    ],
+    "openembedded": [
+        "cpe:/o:openembedded:nodistro:0",
     ],
 }
 
@@ -405,6 +409,7 @@ MAKEFILE_ID_TO_PRODUCT_MAP = {
     'example': 'Example Linux Content',
     'ol': 'Oracle Linux',
     'ocp': 'Red Hat OpenShift Container Platform',
+    'openembedded': 'Open xEmbedded',
 }
 
 
